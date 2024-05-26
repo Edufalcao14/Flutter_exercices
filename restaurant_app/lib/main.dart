@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant_app/cart_screen.dart';
-import 'package:restaurant_app/cart_view_model.dart';
-import 'package:restaurant_app/home_screen.dart';
+import 'package:restaurant_app/views/cart_screen.dart';
+import 'package:restaurant_app/view_models/cart_view_model.dart';
+import 'package:restaurant_app/views/home_screen.dart';
 
 
 final GoRouter _router = GoRouter(

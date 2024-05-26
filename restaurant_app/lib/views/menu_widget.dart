@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'dish.dart';
+import '../models/dish.dart';
 import 'dish_widget.dart';
 
 class MenuWidget extends StatelessWidget {

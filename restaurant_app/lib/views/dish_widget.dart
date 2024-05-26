@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'dish.dart';
-import 'cart_view_model.dart';
+import '../models/dish.dart';
+import '../view_models/cart_view_model.dart';
 
 class DishWidget extends StatelessWidget {
   final Dish dish;

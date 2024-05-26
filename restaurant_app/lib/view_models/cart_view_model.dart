@@ -2,7 +2,7 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 
-import 'dish.dart';
+import '../models/dish.dart';
 
 class CartViewModel extends ChangeNotifier {
   final _cart = <Dish, int>{};
