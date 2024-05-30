@@ -4,8 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class Book {
-  static const apiKey =
-      'AIzaSyDz08WH7BC3TR5AXlny3a2aJNpfSRMvjx8'; // Replace with your API key
+  static const apiKey; // Replace with your API key
   static const String apiUrl =
       'https://www.googleapis.com/books/v1/volumes?q=best+sellers&maxResults=10&key=$apiKey';
 
