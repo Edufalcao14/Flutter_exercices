@@ -30,21 +30,6 @@ class FavoriteScreen extends StatelessWidget {
                     icon: const Icon(Icons.home),
                     onPressed: () => context.go("/"),
                   ),
-                  Positioned(
-                    right: 3,
-                    bottom: 3,
-                    child: Container(
-                      padding: const EdgeInsets.all(2),
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      constraints: const BoxConstraints(
-                        minWidth: 16,
-                        minHeight: 16,
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ],

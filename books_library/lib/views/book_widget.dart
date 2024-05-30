@@ -37,7 +37,7 @@ class _BookWidgetState extends State<BookWidget> {
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
                       widget.book.imagePath,
-                      height: 150,
+                      height: 200,
                       width: 100,
                       fit: BoxFit.cover,
                     ),
@@ -113,8 +113,7 @@ class _BookWidgetState extends State<BookWidget> {
                   IconButton(
                     icon: Icon(Icons.arrow_forward),
                     onPressed: () {
-                      onPressed:
-                      () => context.go("/book/${widget.book.isbn}");
+                      context.go("/book/${widget.book.id}");
                     },
                   ),
                   SizedBox(width: 10),

@@ -16,10 +16,9 @@ final GoRouter _router = GoRouter(initialLocation: '/', routes: [
     builder: (context, state) => FavoriteScreen(),
   ),
   GoRoute(
-    path: '/book/:isbn',
-    builder: (context, state) => BookScreen(
-      isbn: state.pathParameters['isbn'] as int,
-    ),
+    path: '/book/:id',
+    builder: (context, state) =>
+        BookScreen(id: state.pathParameters['id'] ?? ''),
   )
 ]);
 

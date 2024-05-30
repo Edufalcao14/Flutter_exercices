@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../models/book.dart';
 import '../view_models/favorite_book_view_model.dart';
@@ -110,12 +111,12 @@ class FavoriteLibraryWidget extends StatelessWidget {
                               IconButton(
                                 icon: Icon(Icons.arrow_forward),
                                 onPressed: () {
-                                  // Implement your logic for arrow button here
+                                  context.go("/book/${book.id}");
                                 },
                               ),
                               SizedBox(width: 10),
                               IconButton(
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.remove,
                                   color: Colors.red,
                                 ),

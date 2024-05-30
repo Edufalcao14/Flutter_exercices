@@ -4,7 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class Book {
-  static const apiKey = ''; // Replace with your API key
+  static const apiKey =
+      'AIzaSyDz08WH7BC3TR5AXlny3a2aJNpfSRMvjx8'; // Replace with your API key
   static const String apiUrl =
       'https://www.googleapis.com/books/v1/volumes?q=best+sellers&maxResults=10&key=$apiKey';
 
@@ -17,6 +18,7 @@ class Book {
   final int pageCount;
   final List<String> categories;
   final String imagePath;
+  final String bigImage;
   final String publishedDate;
   final double retailPrice;
   bool isFavorite;
@@ -31,6 +33,7 @@ class Book {
     required this.pageCount,
     required this.categories,
     required this.imagePath,
+    required this.bigImage,
     required this.publishedDate,
     required this.retailPrice,
     this.isFavorite = false,
@@ -58,11 +61,27 @@ class Book {
               .toList() ??
           [],
       imagePath: volumeInfo['imageLinks']?['thumbnail'] ?? '',
+      bigImage: volumeInfo['imageLinks']?['large'] ?? '',
       publishedDate: volumeInfo['publishedDate'] ?? 'No date',
       retailPrice:
           (saleInfo['retailPrice']?['amount'] as num?)?.toDouble() ?? 0.0,
     );
   }
+
+  Book.empty()
+      : id = '',
+        isbn = 0,
+        title = '',
+        authors = [],
+        publisher = '',
+        description = '',
+        pageCount = 0,
+        categories = [],
+        imagePath = '',
+        bigImage = '',
+        publishedDate = '',
+        retailPrice = 0.0,
+        isFavorite = false;
 
   static Future<List<Book>> fetchBooks() async {
     var response = await http.get(Uri.parse(apiUrl));
@@ -77,6 +96,19 @@ class Book {
     return compute((input) {
       return input.map<Book>((jsonObj) => Book.fromJson(jsonObj)).toList();
     }, items);
+  }
+
+  static Future<Book> fetchBook(String id) async {
+    const urlBase = 'https://www.googleapis.com/books/v1/volumes';
+    String url = "$urlBase/$id?key=$apiKey";
+    var response = await http.get(Uri.parse(url));
+
+    print(response.body);
+    if (response.statusCode != 200) {
+      throw Exception("Error ${response.statusCode} fetching Book");
+    }
+
+    return Book.fromJson(jsonDecode(response.body));
   }
 
   @override

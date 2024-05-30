@@ -64,6 +64,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     minWidth: 16,
                     minHeight: 16,
                   ),
+                  child: Consumer<FavoriteBookViewModel>(
+                    builder: (context, viewModel, _) => Text(
+                      '${viewModel.favorites.length}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 11,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                 ),
               ),
             ],
